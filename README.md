@@ -62,7 +62,7 @@ The game needs **no environment variables**. Everything runs in the browser, inc
 | Variable | Used by | Purpose |
 | --- | --- | --- |
 | `BASE_URL` | Playwright | Optional. Runs the suite against an already running URL (e.g. the deployed site) instead of building and previewing locally |
-| `CI` | Playwright | Optional. Enables `forbidOnly`, one retry and a fresh preview server |
+| `CI` | Playwright | Optional. Enables `forbidOnly` and always starts a fresh preview server |
 
 ## Controls
 
@@ -164,6 +164,7 @@ npm run test:e2e:docker -- 13-visual     # visual tests on Linux, inside Docker
 
 - **Reproducible:** each test uses a fixed seed (`?seed=`) and a manual clock (`?manualClock`). Time only advances through `advance(seconds)`, which runs the real fixed-step simulation: rules, inputs, collisions and rendering.
 - **Isolated:** a new browser context per test (fresh `localStorage`, service worker and cache).
+- **Retries:** each test gets one retry. WebGL-heavy tests can stall when several browsers render in parallel on a slow machine; a test that passes on retry is flagged as *flaky* in the report, never hidden. The long simulation specs (04, 05) have a 180 s timeout.
 - **Real controls:** tests press keys and touch buttons, then observe the game through a read-only test hook.
 - **Clean console:** every test fails on unexpected console errors or page exceptions. The only exception is the browser's own "Failed to load resource" log for failures that are simulated on purpose.
 - **Artifacts:** HTML report in `docs/test-report/`; traces and screenshots of failed tests in `test-results/`.

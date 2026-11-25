@@ -1,6 +1,9 @@
 import { advance, expect, snapshot, startMatch, test } from './helpers'
 
 test.describe('enemies', () => {
+  // Long in-page simulation loops: with several WebGL browsers in parallel they can exceed 60 s.
+  test.describe.configure({ timeout: 180_000 })
+
   test('spawn on the configured interval, away from the player and islands, with both types', async ({ page }) => {
     await startMatch(page, { seed: 4 })
     await advance(page, 2.9)

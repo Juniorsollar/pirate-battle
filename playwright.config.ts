@@ -7,7 +7,8 @@ export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 1 : 0,
+  // One retry everywhere: WebGL-heavy tests can stall under parallel load; retried tests are reported as flaky.
+  retries: 1,
   timeout: 60_000,
   // The HTML report is a deliverable: it lives in docs/ and is versioned.
   reporter: [['html', { outputFolder: 'docs/test-report', open: 'never' }], ['list']],

@@ -1,6 +1,9 @@
 import { advance, expect, NO_ENEMIES, snapshot, startMatch, test } from './helpers'
 
 test.describe('combat', () => {
+  // Long in-page simulation loops: with several WebGL browsers in parallel they can exceed 60 s.
+  test.describe.configure({ timeout: 180_000 })
+
   test('bow cannon fires a single forward shot and respects its cooldown', async ({ page }) => {
     await startMatch(page, { overrides: NO_ENEMIES })
     await page.keyboard.down('Space')

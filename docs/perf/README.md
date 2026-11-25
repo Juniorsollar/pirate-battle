@@ -103,6 +103,7 @@ Long frames (> 33 ms) were recorded with timestamps in every run:
 
 ## Limitations of these measurements
 
+- These runs were made **before sound effects were added**. Audio plays pre-decoded buffers on the Web Audio thread (at most one sound per type per simulation batch), so no measurable impact on frame time is expected, but it was not re-profiled. Re-run `npm run profile` to include it.
 - Integrated GPU notebook with a 60 Hz panel: FPS cannot exceed 60 (vsync), and the machine was shared with other applications, which explains the run-to-run variance in hitches.
 - The canvas is 1920×1080 while the physical panel is 1366×768. The window is larger than the screen, so part of it is off-screen; rendering cost is still that of a 1080p canvas.
 - Playwright's Chromium build, headed, with background throttling disabled. Stable Chrome, Firefox and Safari were not profiled.

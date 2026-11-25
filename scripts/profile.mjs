@@ -169,7 +169,7 @@ async function runMatch(browser, name, { durationSec, spawnIntervalSec, override
   const consoleProblems = []
   page.on('console', (m) => ['error', 'warning'].includes(m.type()) && consoleProblems.push(`${m.type()}: ${m.text()}`))
   page.on('pageerror', (e) => consoleProblems.push(`pageerror: ${e.message}`))
-  await page.goto(`${BASE}/?perf&test&scenario=instant&seed=42&overrides=${encodeURIComponent(JSON.stringify(overrides))}`)
+  await page.goto(`${BASE}/?perf&test&sound&scenario=instant&seed=42&overrides=${encodeURIComponent(JSON.stringify(overrides))}`)
   await page.evaluate((options) => localStorage.setItem('pirate-battle:options:v1', JSON.stringify(options)), { durationSec, spawnIntervalSec })
   await page.reload()
   await page.getByRole('button', { name: 'Play' }).click()
