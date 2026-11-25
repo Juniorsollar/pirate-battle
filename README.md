@@ -2,7 +2,7 @@
 
 A top-down 2D naval shooter built with **React**, **TypeScript (strict)** and **PixiJS**. Sail between islands, sink enemy ships and score as many points as you can before the clock runs out. Ranking and match history are served by a REST API mocked with **MSW**, consumed with **Axios** and **TanStack Query**. End-to-end and visual tests use **Playwright**.
 
-- **Live demo:** _deploy URL added after publishing_
+- **Live demo:** <https://pirate-battle-brown.vercel.app> (Vercel; mocks run in the published build)
 - **Architecture and design decisions:** [ARCHITECTURE.md](ARCHITECTURE.md)
 - **Test report (HTML):** [docs/test-report/index.html](docs/test-report/index.html)
 - **Original challenge statement:** [docs/CHALLENGE.md](docs/CHALLENGE.md)
@@ -119,7 +119,7 @@ The ranking and history API is mocked by MSW in **every** environment, including
 **Selecting a scenario**
 
 - In the app: **Main Menu → "Network scenarios (demo)"**, then pick one from the list. The choice is persisted.
-- By URL: `?scenario=<name>`, for example `https://<deploy-url>/?scenario=slow`.
+- By URL: `?scenario=<name>`, for example `https://pirate-battle-brown.vercel.app/?scenario=slow`.
 
 **Resetting:** Main Menu → "Network scenarios (demo)" → **Reset mock data**. This restores the fixtures, sets the scenario back to `success`, resets the seeded network randomness and clears the query cache. Matches waiting to be saved on this device are kept.
 
@@ -168,6 +168,7 @@ npm run test:e2e:docker -- 13-visual     # visual tests on Linux, inside Docker
 - **Clean console:** every test fails on unexpected console errors or page exceptions. The only exception is the browser's own "Failed to load resource" log for failures that are simulated on purpose.
 - **Artifacts:** HTML report in `docs/test-report/`; traces and screenshots of failed tests in `test-results/`.
 - **Visual baselines:** `tests/e2e/__screenshots__/` (menu, arena, result × desktop/mobile), generated on **Linux** with `npm run test:e2e:docker -- 13-visual --update-snapshots`. There is no OS suffix. The comparison uses `threshold: 0.3` and `maxDiffPixelRatio: 0.03`; the measured worst case on Windows against the Linux baselines is **1.79 %**. Run `PW_MAX_DIFF_RATIO=0 npm run test:e2e -- 13-visual` to print the real difference of each capture. Details in [ARCHITECTURE.md § Testing](ARCHITECTURE.md#testing).
+- **Against the published site:** `BASE_URL=https://pirate-battle-brown.vercel.app npm run test:e2e` runs the same suite against the deployment (70 passed, 2 skipped; one result-screen test timed out once under parallel network load and passed on rerun).
 - **Clean checkout on Linux:** `npm run test:e2e:docker` copies the repository (without `node_modules`) into the official Playwright image, runs `npm ci` and the whole suite. The report in `docs/test-report/` comes from that run.
 
 ### Test-only URL parameters
