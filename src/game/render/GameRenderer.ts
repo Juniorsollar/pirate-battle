@@ -31,6 +31,8 @@ interface Effect {
 /** Draws the simulation state with PixiJS. Reads the simulation, never changes it. */
 export class GameRenderer {
   readonly world = new Container()
+  /** Sea behind the whole canvas, so screens wider or taller than 16:9 show water instead of bars. */
+  private readonly sea: TilingSprite
   private readonly shipLayer = new Container()
   private readonly projectileLayer = new Container()
   private readonly fxLayer = new Container()
@@ -48,10 +50,9 @@ export class GameRenderer {
     this.app = app
     this.textures = textures
     this.sim = sim
-    const { width, height } = sim.config.arena
-    const water = new TilingSprite({ texture: textures.water, width, height })
-    this.world.addChild(water, this.buildIslands(), this.shipLayer, this.projectileLayer, this.fxLayer, this.barLayer)
-    app.stage.addChild(this.world)
+    this.sea = new TilingSprite({ texture: textures.water, width: 1, height: 1 })
+    this.world.addChild(this.buildIslands(), this.shipLayer, this.projectileLayer, this.fxLayer, this.barLayer)
+    app.stage.addChild(this.sea, this.world)
     this.fit()
   }
 
@@ -88,6 +89,11 @@ export class GameRenderer {
     const scale = Math.min(screen.width / width, screen.height / height)
     this.world.scale.set(scale)
     this.world.position.set((screen.width - width * scale) / 2, (screen.height - height * scale) / 2)
+    // Purely visual: the arena limits stay the same; the tiles line up with the arena grid.
+    this.sea.width = screen.width
+    this.sea.height = screen.height
+    this.sea.tileScale.set(scale)
+    this.sea.tilePosition.set(this.world.x, this.world.y)
   }
 
   private createShipView(ship: Ship): ShipView {
@@ -271,5 +277,6 @@ export class GameRenderer {
     this.effects = []
     // Shared atlas textures stay in the Assets cache for the next match.
     this.world.destroy({ children: true })
+    this.sea.destroy()
   }
 }
