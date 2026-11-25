@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-23T19:52:48.926Z",
+  "environment": {
+    "os": "Windows_NT 10.0.26300 (x64)",
+    "cpu": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz × 8 threads",
+    "memoryGb": 7.9,
+    "browser": "Chromium 159.0.8154.6 (Playwright, headed)",
+    "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009B41) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "viewport": "1920×1080 CSS px",
+    "devicePixelRatio": 1,
+    "screen": "1920×1080"
+  },
+  "matches": {
+    "stress": {
+      "config": {
+        "durationSec": 90,
+        "spawnIntervalSec": 1,
+        "seed": 42,
+        "overrides": {
+          "player": {
+            "maxHealth": 1000000
+          },
+          "session": {
+            "maxEnemies": 40
+          }
+        },
+        "autopilot": false,
+        "other": "DEFAULT_CONFIG"
+      },
+      "result": {
+        "score": 0,
+        "autoResumes": 0
+      },
+      "frameTimes": {
+        "frames": 5386,
+        "seconds": 90,
+        "avgFps": 59.8,
+        "avgMs": 16.72,
+        "p50Ms": 16.7,
+        "p95Ms": 16.9,
+        "p99Ms": 16.9,
+        "maxMs": 100,
+        "over20Ms": 4,
+        "over33Ms": 3
+      },
+      "frameTimesAfterWarmup": {
+        "frames": 5266,
+        "seconds": 87.8,
+        "avgFps": 59.9,
+        "avgMs": 16.68,
+        "p50Ms": 16.7,
+        "p95Ms": 16.9,
+        "p99Ms": 16.9,
+        "maxMs": 100,
+        "over20Ms": 1,
+        "over33Ms": 1
+      },
+      "entities": {
+        "enemies": {
+          "avg": 23.8,
+          "max": 40
+        },
+        "projectiles": {
+          "avg": 4.6,
+          "max": 12
+        },
+        "effects": {
+          "avg": 7.4,
+          "max": 21
+        },
+        "displayObjects": {
+          "avg": 232.7,
+          "max": 346
+        }
+      },
+      "longFrames": [
+        {
+          "t": 0.1,
+          "ms": 99.9
+        },
+        {
+          "t": 0.2,
+          "ms": 100
+        },
+        {
+          "t": 55.96,
+          "ms": 100
+        }
+      ],
+      "consoleProblems": []
+    }
+  }
+}

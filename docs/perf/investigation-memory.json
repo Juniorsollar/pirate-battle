@@ -1,0 +1,206 @@
+{
+  "date": "2026-11-23T19:54:34.203Z",
+  "environment": {
+    "os": "Windows_NT 10.0.26300 (x64)",
+    "cpu": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz × 8 threads",
+    "memoryGb": 7.9,
+    "browser": "Chromium 159.0.8154.6 (Playwright, headed)",
+    "gpu": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009B41) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "viewport": "1920×1080 CSS px",
+    "devicePixelRatio": 1,
+    "screen": "1920×1080"
+  },
+  "matches": {},
+  "memory": {
+    "cyclesAfterWarmup": 15,
+    "secondsPerCycle": 10,
+    "measurements": [
+      {
+        "label": "menu, before any match",
+        "heapMb": 4.54,
+        "nodes": 216,
+        "listeners": 176,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none"
+      },
+      {
+        "label": "after warm-up cycle",
+        "heapMb": 7.29,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.2,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 1",
+        "heapMb": 7.54,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 2",
+        "heapMb": 7.75,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 3",
+        "heapMb": 7.87,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 4",
+        "heapMb": 8,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 5",
+        "heapMb": 8.07,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 6",
+        "heapMb": 8.11,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 7",
+        "heapMb": 8.19,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 8",
+        "heapMb": 8.5,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 9",
+        "heapMb": 8.57,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 10",
+        "heapMb": 8.64,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 11",
+        "heapMb": 8.69,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 12",
+        "heapMb": 8.73,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 13",
+        "heapMb": 8.77,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 14",
+        "heapMb": 8.84,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      },
+      {
+        "label": "after cycle 15",
+        "heapMb": 8.9,
+        "nodes": 219,
+        "listeners": 193,
+        "documents": 1,
+        "canvases": 0,
+        "hook": "none",
+        "playedSeconds": 10.1,
+        "enemiesAtExit": 2
+      }
+    ],
+    "consoleProblems": []
+  }
+}

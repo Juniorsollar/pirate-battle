@@ -1,0 +1,21 @@
+:root {
+  color-scheme: dark;
+  /* Bundled font: identical text metrics on every OS (also keeps visual baselines portable). */
+  font-family: Roboto, system-ui, sans-serif;
+  background: #1d2a3a url('/assets/ui_scene_background.png') center / cover no-repeat fixed;
+  color: #f6e7c1;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+}
+

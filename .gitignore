@@ -1,0 +1,33 @@
+# OS / editors
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+*.log
+
+# Playwright (the HTML report is versioned in docs/test-report)
+test-results/
+blob-report/
+playwright/.cache/
+dist-unminified/
+
+# Internal working notes (Portuguese) and local agent config: not part of the delivery
+PLANO_DE_EXECUCAO.md
+PROGRESSO.md
+AUDITORIA_REQUISITOS.md
+CLAUDE.md
+.claude/

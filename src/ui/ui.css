@@ -1,0 +1,749 @@
+:root {
+  --ink: #f6e7c1;
+  --ink-dim: #d9c9a3;
+  --gold: #ffd166;
+  --danger: #ffb4a8;
+  --panel: #1f2d40;
+  --focus: #7fe3ff;
+}
+
+.app {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+}
+
+.app--match {
+  padding: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  /* Dark halo behind the cyan ring keeps it visible on light backgrounds (e.g. the sea). */
+  box-shadow: 0 0 0 8px #0b1622;
+}
+
+/* ---------------------------------------------------------------- panel */
+
+.panel {
+  width: min(440px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 44px 40px;
+  border: 40px solid transparent;
+  border-width: 40px 32px;
+  border-image: url('/assets/png/default/ui/menu/panel_menu.png') 40 32 fill / 40px 32px stretch;
+  text-align: center;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 0 3px 0 #0006;
+}
+
+.title-image {
+  margin: 0;
+}
+
+.title-image img {
+  width: min(320px, 70vw);
+  height: auto;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.section-title {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+}
+
+.error {
+  margin: 0;
+  font-weight: 600;
+  color: var(--danger);
+}
+
+.status {
+  min-height: 1.2em;
+  margin: 0;
+  color: var(--gold);
+}
+
+/* ---------------------------------------------------------------- buttons */
+
+.menu-button {
+  width: 240px;
+  height: 80px;
+  padding: 0 32px 6px;
+  border: 0;
+  background: url('/assets/png/default/ui/menu/button_primary_normal.png') center / 256px 88px no-repeat;
+  color: #3b2410;
+  font: inherit;
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  background-image: url('/assets/png/default/ui/menu/button_primary_hover.png');
+}
+
+.menu-button:active {
+  background-image: url('/assets/png/default/ui/menu/button_primary_pressed.png');
+}
+
+.menu-button:disabled {
+  background-image: url('/assets/png/default/ui/menu/button_primary_disabled.png');
+  cursor: not-allowed;
+}
+
+.menu-button--secondary {
+  background-image: url('/assets/png/default/ui/menu/button_secondary_normal.png');
+  color: var(--ink);
+  font-size: 1.1rem;
+}
+
+.menu-button--secondary:hover,
+.menu-button--secondary:active {
+  background-image: url('/assets/png/default/ui/menu/button_secondary_pressed.png');
+}
+
+.round-button {
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: url('/assets/png/default/ui/controls/button_round_normal.png') center / 64px 64px no-repeat;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.round-button:hover {
+  background-image: url('/assets/png/default/ui/controls/button_round_hover.png');
+}
+
+.round-button:active {
+  background-image: url('/assets/png/default/ui/controls/button_round_pressed.png');
+}
+
+.round-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.round-button img {
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- controls help */
+
+.controls-help {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.controls-help div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.controls-help dt {
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.controls-help dd {
+  margin: 0;
+  color: var(--ink);
+  text-align: right;
+}
+
+/* ---------------------------------------------------------------- options */
+
+.options-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.stepper-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.stepper-value input {
+  width: 3.2em;
+  padding: 4px;
+  border: 2px solid #ffffff40;
+  border-radius: 8px;
+  background: #0003;
+  color: var(--ink);
+  font: inherit;
+  text-align: center;
+}
+
+.stepper-value input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+/* ---------------------------------------------------------------- loading / result */
+
+.progress {
+  width: 100%;
+  height: 16px;
+  accent-color: var(--gold);
+}
+
+.result-score {
+  margin: 0;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.result-details {
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.result-details dt {
+  color: var(--ink-dim);
+}
+
+.result-details dd {
+  margin: 2px 0 0;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------- battle */
+
+.battle {
+  position: fixed;
+  inset: 0;
+  background: #1b6e8f;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.arena {
+  position: absolute;
+  inset: 0;
+}
+
+.arena canvas {
+  display: block;
+}
+
+.hud {
+  flex-wrap: wrap;
+  position: absolute;
+  inset: max(10px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) auto max(12px, env(safe-area-inset-left));
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.hud button {
+  pointer-events: auto;
+}
+
+.hud-health {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hud-heart {
+  width: 40px;
+  height: 40px;
+}
+
+.health-bar {
+  position: relative;
+  width: clamp(150px, 22vw, 220px);
+  height: 26px;
+  border: 3px solid #8a5a2b;
+  border-radius: 14px;
+  background: #1d2a3a;
+  overflow: hidden;
+  box-shadow: 0 2px 0 #0006;
+}
+
+.health-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  transition: width 120ms linear;
+}
+
+.health-fill--green {
+  background: linear-gradient(#6fdc4c, #2f9b2a);
+}
+
+.health-fill--amber {
+  background: linear-gradient(#ffd166, #e09a1a);
+}
+
+.health-fill--red {
+  background: linear-gradient(#ff7b6b, #c0392b);
+}
+
+.health-text {
+  position: relative;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 900;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 2px #000;
+}
+
+.hud-right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-left: auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 120px;
+  height: 46px;
+  padding: 0 16px;
+  background: url('/assets/png/default/ui/hud/counter_panel.png') center / 100% 100% no-repeat;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.counter img {
+  width: 28px;
+  height: 28px;
+}
+
+.touch-controls {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .touch-controls {
+    position: absolute;
+    inset: auto max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+
+  .touch-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 64px);
+    grid-template-rows: 56px 56px;
+    gap: 4px 10px;
+    pointer-events: auto;
+  }
+
+  .touch-button {
+    width: 64px;
+    height: 64px;
+    background-size: 72px 72px;
+  }
+
+  .touch-button--turnLeft,
+  .touch-button--turnRight,
+  .touch-button--fireLeft,
+  .touch-button--fireRight {
+    grid-row: 2;
+  }
+
+  .touch-button--forward,
+  .touch-button--fireFront {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .touch-button--turnRight,
+  .touch-button--fireRight {
+    grid-column: 3;
+  }
+}
+
+/* ---------------------------------------------------------------- dialog */
+
+.dialog {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.dialog::backdrop {
+  background: #0008;
+}
+
+@media (max-height: 520px) {
+  .panel {
+    width: min(640px, 100%);
+    padding: 8px 20px;
+    gap: 6px;
+    border-width: 28px 24px;
+    border-image-width: 28px 24px;
+  }
+
+  .panel-title {
+    font-size: 1.4rem;
+  }
+
+  .result-score {
+    font-size: 2.6rem;
+  }
+
+  /* Side-by-side actions so panels fit phones in landscape. */
+  .stack {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tab {
+    height: 52px;
+    width: 180px;
+    background-size: 196px 60px;
+  }
+
+  .log-table td {
+    padding: 6px 8px;
+  }
+
+  .panel .controls-help {
+    display: none;
+  }
+
+  .title-image img {
+    width: 220px;
+  }
+
+  .menu-button {
+    height: 64px;
+    background-size: 210px 72px;
+    width: 200px;
+    font-size: 1.1rem;
+  }
+
+  .counter {
+    min-width: 96px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .health-fill {
+    transition: none;
+  }
+}
+
+/* ---------------------------------------------------------------- captain's log */
+
+.panel--wide {
+  width: min(980px, 100%);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tab {
+  width: 220px;
+  height: 64px;
+  background-size: 236px 72px;
+  font-size: 1.05rem;
+}
+
+.log-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  text-align: left;
+}
+
+.log-table th {
+  padding: 0 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+.log-table td {
+  padding: 12px 14px;
+  background: #15202e;
+  font-weight: 700;
+}
+
+.log-table td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.log-table td:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.log-table tr.is-you td {
+  background: #5a5233;
+}
+
+.log-table .points {
+  color: var(--gold);
+}
+
+.reason--time_up {
+  color: #c6f1a8;
+}
+
+.reason--destroyed {
+  color: var(--danger);
+}
+
+.badge {
+  margin-left: 8px;
+  padding: 1px 6px;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--gold);
+  vertical-align: middle;
+}
+
+.log-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0;
+  color: var(--ink);
+}
+
+.log-refresh {
+  min-height: 1.2em;
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------- menu extras */
+
+.last-result,
+.pending {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.pending {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--gold);
+}
+
+.log-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.log-buttons .menu-button {
+  width: 180px;
+  height: 60px;
+  background-size: 196px 68px;
+  font-size: 0.95rem;
+}
+
+.link-button {
+  padding: 2px 4px;
+  border: 0;
+  background: none;
+  color: var(--focus);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.scenario-panel {
+  width: 100%;
+  font-size: 0.8rem;
+  text-align: left;
+  color: var(--ink-dim);
+}
+
+.scenario-panel summary {
+  cursor: pointer;
+}
+
+.scenario-panel label {
+  display: block;
+  margin: 8px 0 4px;
+}
+
+.scenario-panel select {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  background: #15202e;
+  color: var(--ink);
+  font: inherit;
+}
+
+.submission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.submission p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.submission--saved p {
+  color: #c6f1a8;
+}
+
+.submission--failed p {
+  color: var(--danger);
+}
+
+@media (max-width: 640px) {
+  .log-table th,
+  .log-table td {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ---------------------------------------------------------------- portrait on touch devices */
+
+.rotate-hint {
+  margin: 0;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+@media (orientation: portrait) and (pointer: coarse) {
+  /* Landscape is the supported orientation: the match is paused and the pad is hidden. */
+  .touch-controls {
+    display: none;
+  }
+}
